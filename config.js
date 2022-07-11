@@ -1,4 +1,3 @@
-const {finam} = require("./config");
 module.exports = {
   tinkoffAPIToken: 't.ggQBKkcHFZQNmMtdXB3mDkbbX_sTF7g_UBBrIPQz_E2RXOPllXDARh68HTxFcv5MkIsk2tWcoech07_3DbqGOg',
   tickers: [
