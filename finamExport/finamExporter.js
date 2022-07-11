@@ -3,7 +3,6 @@ const exportDataForTicker = require('./exportDataForTicker.js');
 const saveData = require('./saveData.js');
 const {finam} = require('../config.js');
 const convertCSVStringToJSONString = require('./convertCSVStringToJSONString.js')
-const timeout = require("./timeout.js");
 
 const finamExporter = async () => {
   for (const marketKey of Object.keys(finam.markets)) {
