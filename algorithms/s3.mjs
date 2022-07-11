@@ -1,6 +1,6 @@
-import{timeStamp} from "./timeStamp.js";
-import {moveStopLoss} from "./moveStopLoss.js";
-import {closePosition} from "./closePosition.js";
+import{timeStamp} from "./timeStamp.mjs";
+import {moveStopLoss} from "./moveStopLoss.mjs";
+import {closePosition} from "./closePosition.mjs";
 
 let timer2 = 52203 // 14:30:03
 let arrTrades = []
