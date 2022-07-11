@@ -4,7 +4,7 @@
   "scripts": {
     "finamBot": "node bot.mjs",
     "profit": "node profitabilityIterator.mjs",
-    "test": "node test.js",
+    "test": "node --inspect-brk test.js",
     "exportFromFinam": "node finamExport/finamExporter.js"
   },
   "dependencies": {

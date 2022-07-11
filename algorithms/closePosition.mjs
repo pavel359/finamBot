@@ -28,7 +28,7 @@ function closePosition (ticker, share, dirName, close = false) {
         let newObj = fs.readFileSync(dirName, "utf8", function(error,data){ });
         newObj = JSON.parse(newObj)
         newObj.push(obj)
-        fs.writeFile(dirName, JSON.stringify(newObj), function(error){
+        fs.writeFileSync(dirName, JSON.stringify(newObj), function(error){
             if(error)
                 throw error
         })

@@ -16,5 +16,4 @@ const saveData = async (data='', exportFolder = 'test', market = 'test', ticker 
     , data, 'utf8')
 }
 
-
 module.exports = saveData;

@@ -2,7 +2,7 @@ import{timeStamp} from "./timeStamp.mjs";
 import {moveStopLoss} from "./moveStopLoss.mjs";
 import {closePosition} from "./closePosition.mjs";
 
-let timer1 = 52205 // 14:30:05
+let timer1 = 52204 // 14:30:05
 let arrTrades = []
 let timing = '5s'
 let dirName = 'algorithms/logs/s5v2.json'

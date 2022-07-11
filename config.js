@@ -14,12 +14,7 @@ module.exports = {
         id: 517,
         name: 'SPB_Exchange',
         prefix:'SPBEX.',
-        tickers: [
-          "AAPL", "MSFT", "GOOGL", "GOOG", "TSLA", "NVDA", "UNH", "JNJ", "V",
-          "JPM", "PG", "MA", "BAC", "CVX", "HD", "BABA", "PFE", "LLY", "KO",
-          "AVGO", "COST", "CSCO", "ADBE", "VZ", "NKE", "CRM", "INTC", "WFC",
-          "AMD", "QCOM", "BMY", "PYPL", "LOW", "BA", "C", "JD", "MU", "SHOP",
-          "SQ", "MRNA", "PANW", "OXY", "PLAN", "NFLX", "DOCU"
+        tickers: ["NFLX"
         ],
       },
       moex: {

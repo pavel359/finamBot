@@ -2,11 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 let tickers = [
-    "AAPL", "MSFT", "GOOGL", "GOOG", "TSLA", "NVDA", "UNH", "JNJ", "V",
-    "JPM", "PG", "MA", "BAC", "CVX", "HD", "BABA", "PFE", "LLY", "KO",
-    "AVGO", "COST", "CSCO", "ADBE", "VZ", "NKE", "CRM", "INTC", "WFC",
-    "AMD", "QCOM", "BMY", "PYPL", "LOW", "BA", "C", "JD", "MU", "SHOP",
-    "SQ", "MRNA", "PANW", "OXY", "PLAN", "NFLX", "DOCU"
+    "NFLX"
 ]
 
 import * as s5 from "./algorithms/s5.mjs"; // импорт функционала модуля plus.js как объекта obj
