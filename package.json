@@ -1,11 +1,10 @@
 {
   "name": "finamBot",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "start": "node appV2.js",
     "develop": "node --inspect-brk appV2.js",
-    "finamBot": "node bot.js",
+    "finamBot": "node bot.mjs",
     "test": "node test.js",
     "finamTest": "cross-env NODE_ENV=finam node --inspect-brk appV2.js",
     "exportFromFinam": "node finamExport/finamExporter.js",

@@ -15,7 +15,7 @@ module.exports = {
         name: 'SPB_Exchange',
         prefix:'SPBEX.',
         tickers: [
-          "NFLX"
+          "NFLX", "DOCU"
         ],
       },
       moex: {
