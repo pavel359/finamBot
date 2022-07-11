@@ -74,8 +74,10 @@ function openPosition(data) {
             arrTrades.push(Number(prop['<LAST>']))
         }
     }
-    let end = true
-    closePosition(ticker, share[`${ticker}`], dirName, end)
+    if (share[`${ticker}`].signal == true) {
+        let end = true
+        closePosition(ticker, share[`${ticker}`], dirName, end)
+    }
 }
 
 export {openPosition}

@@ -1,10 +1,11 @@
+const {finam} = require("./config");
 module.exports = {
   tinkoffAPIToken: 't.ggQBKkcHFZQNmMtdXB3mDkbbX_sTF7g_UBBrIPQz_E2RXOPllXDARh68HTxFcv5MkIsk2tWcoech07_3DbqGOg',
   tickers: [
   ],
 
   finam: {
-    exportFolder: 'dist',
+    exportFolder: `dist`,
     data:{
       from:"19.04.2022",
       to:"20.04.2022"
