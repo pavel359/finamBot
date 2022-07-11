@@ -1,0 +1,21 @@
+{
+  "name": "finamBot",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node appV2.js",
+    "develop": "node --inspect-brk appV2.js",
+    "finamBot": "node bot.js",
+    "test": "node test.js",
+    "finamTest": "cross-env NODE_ENV=finam node --inspect-brk appV2.js",
+    "exportFromFinam": "node finamExport/finamExporter.js",
+    "exportFromFinamDev": "node --inspect-brk finam/finamExporter.js"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
