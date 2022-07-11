@@ -40,7 +40,9 @@ const finamExporter = async () => {
         }
       })
       newData = JSON.stringify(newData)
-      saveData(newData, finam.exportFolder, market.name, `${ticker}.json`).catch(e=>console.error(e))
+      saveData(newData, finam.exportFolder, market.name, `${ticker}.json`)
+          .catch(e => console.error(e))
+          .then(() => console.log(`successfully downloaded data for ticker ${ticker}`))
     }
   }
 }
