@@ -18,6 +18,12 @@ const finamExporter = async () => {
 
       // eslint-disable-next-line no-await-in-loop
       let data = await convertCSVStringToJSONString(await exportDataForTicker(tickerInfo, finam.data.from, finam.data.to));
+
+      if (data.length===0) {
+        console.log(`NOT FOUND ${ticker} ON FINAM ON MARKET: ${market.name}`);
+        continue;
+      }
+
       data = JSON.parse(data)
       let newData = []
       data.forEach((element) => {
