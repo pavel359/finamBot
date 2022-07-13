@@ -4,8 +4,9 @@
   "scripts": {
     "finamBot": "node bot.mjs",
     "profit": "node profitabilityIterator.mjs",
-    "test": "node --inspect-brk test.js",
-    "exportFromFinam": "node finamExport/finamExporter.js"
+    "test": "node test.js",
+    "exportFromFinam": "node finamExport/finamExporter.js",
+    "exportFromFinamDEV": "node --inspect-brk finamExport/finamExporter.js"
   },
   "dependencies": {
     "csvtojson": "^2.0.10",
