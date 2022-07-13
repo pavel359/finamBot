@@ -2,9 +2,9 @@ import{timeStamp} from "./timeStamp.mjs";
 import {moveStopLoss} from "./moveStopLoss.mjs";
 import {closePosition} from "./closePosition.mjs";
 
-let timer1 = 52204 // 14:30:05
+let timer = 52204 // 14:30:04
 let arrTrades = []
-let timing = '5s'
+let timing = 5
 let dirName = 'algorithms/logs/s5v2.json'
 function openPosition(data) {
     let ticker = data[0]['<TICKER>']
@@ -25,7 +25,7 @@ function openPosition(data) {
         }
     }
     for (let prop of data) {
-        if (timeStamp(prop['<TIME>']) <= timer1) {
+        if (timeStamp(prop['<TIME>']) <= timer) {
             arrTrades.push(Number(prop['<LAST>']))
         } else {
             let price = 0;
@@ -68,8 +68,8 @@ function openPosition(data) {
                 share[`${ticker}`].signal = true
             }
             arrTrades = []
-            while (timer1 < timeStamp(prop['<TIME>'])) {
-                timer1 += 5
+            while (timer < timeStamp(prop['<TIME>'])) {
+                timer += timing
             }
             arrTrades.push(Number(prop['<LAST>']))
         }

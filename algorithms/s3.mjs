@@ -2,9 +2,9 @@ import{timeStamp} from "./timeStamp.mjs";
 import {moveStopLoss} from "./moveStopLoss.mjs";
 import {closePosition} from "./closePosition.mjs";
 
-let timer2 = 52202 // 14:30:03
+let timer = 52202 // 14:30:02
 let arrTrades = []
-let timing = '3s'
+let timing = 3
 let dirName = 'algorithms/logs/s3.json'
 function openPosition(data) {
     let ticker = data[0]['<TICKER>']
@@ -25,7 +25,7 @@ function openPosition(data) {
         }
     }
     for (let prop of data) {
-        if (timeStamp(prop['<TIME>']) <= timer2) {
+        if (timeStamp(prop['<TIME>']) <= timer) {
             arrTrades.push(Number(prop['<LAST>']))
         } else {
             let price = 0;
@@ -58,8 +58,8 @@ function openPosition(data) {
                 share[`${ticker}`].signal = true
             }
             arrTrades = []
-            while (timer2 < timeStamp(prop['<TIME>'])) {
-                timer2 += 3
+            while (timer < timeStamp(prop['<TIME>'])) {
+                timer += timing
             }
             arrTrades.push(Number(prop['<LAST>']))
         }
