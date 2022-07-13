@@ -171,6 +171,6 @@ Temporary Items
 .apdisk
 
 # Directories for reference during development
-algorithms/logs
+/algorithms/logs
 
 # Files которым там не место
