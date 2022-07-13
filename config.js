@@ -9,7 +9,7 @@ module.exports = {
       from:"12.7.2022",
       to:"13.7.2022",
       start:"12.7.2022",
-      end:"7.7.2022"
+      end:"12.6.2022"
     },
     markets:{
       spb: {

@@ -15,6 +15,7 @@ function openPosition(data) {
             pastAveragePrice : 0,
             currentPercent : 0,
             pastPercent : 0,
+            pastPastPercent : 0,
             stopLoss : 0,
             openPositionPrice : 0,
             openPositionTime : 0,
