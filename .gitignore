@@ -1,6 +1,6 @@
 ### Node template
 # Logs
-logs
+
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -174,3 +174,4 @@ Temporary Items
 /algorithms/logs
 
 # Files которым там не место
+/test.mjs

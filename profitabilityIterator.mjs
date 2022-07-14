@@ -24,7 +24,7 @@ var getFiles = function (dir, files_){
     return files_;
 };
 
-let arrDir = getFiles('./algorithms/logs');
+let arrDir = getFiles('./botLogic/logs');
 
 for (let dir of arrDir) {
     let file = fs.readFileSync(dir, {encoding:'utf8', flag:'r'});

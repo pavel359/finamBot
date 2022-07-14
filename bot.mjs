@@ -1,17 +1,23 @@
 import fs from 'fs'
 import path from 'path'
-import {getDate} from "./algorithms/getDate.mjs";
+import {getDate} from "./botLogic/getDate.mjs";
+import {createLog} from "./botLogic/createLog.mjs";
+import * as algorithm from './botLogic/algorithm.mjs'
 
 let tickers = [
     "NFLX"
 ]
+let timer = 52202 // 14:30:02
+let arrTrades = []
+let timing = 3
+let stopLoss = [0.93, 1.07]
+let keyPercent = 0.014
+let botVersion = 'v2'
 
-import * as s5 from "./algorithms/s5.mjs";
-import * as s5v2 from "./algorithms/s5v2.mjs";
-import * as s3 from './algorithms/s3.mjs';
-import * as s3v2 from './algorithms/s3v2.mjs';
-let startDate = "12.7.2022"
-let endDate = "12.6.2022"
+let startDate = "19.4.2022"
+let endDate = "18.4.2022"
+let logFileName = createLog()
+
 while (startDate != endDate) {
     for (let ticker of tickers) {
         let data
@@ -21,10 +27,7 @@ while (startDate != endDate) {
             continue;
         }
         data = JSON.parse(data);
-        s5.openPosition(data)
-        s5v2.openPosition(data)
-        s3.openPosition(data)
-        s3v2.openPosition(data)
+        algorithm.openPosition(data, timer, timing, stopLoss, keyPercent, botVersion, logFileName)
     }
     startDate = getDate(startDate)
 }
