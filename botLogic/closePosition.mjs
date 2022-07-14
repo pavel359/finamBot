@@ -25,10 +25,10 @@ function closePosition (ticker, share, logFIleDir, close = false) {
             closePositionTime: share.closePositionTime,
             profitability: profitability
         }
-        let newObj = fs.readFileSync(logFIleDir, "utf8", function(error,data){ });
+        let newObj = fs.readFileSync(`${logFIleDir}.json`, "utf8", function(error,data){ });
         newObj = JSON.parse(newObj)
         newObj.push(obj)
-        fs.writeFileSync(logFIleDir, JSON.stringify(newObj), function(error){
+        fs.writeFileSync(`${logFIleDir}.json`, JSON.stringify(newObj), function(error){
             if(error)
                 throw error
         })

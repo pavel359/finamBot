@@ -23,7 +23,7 @@ function createLog () {
     let data = []
     data = JSON.stringify(data)
 
-    fs.writeFileSync(path.join(__dirname, 'logs', date)
+    fs.writeFileSync(path.join(__dirname, 'logs', `${date}.json`)
         , data, 'utf8', function () {})
     return date
 }
