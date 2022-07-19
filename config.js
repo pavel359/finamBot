@@ -1,8 +1,4 @@
 module.exports = {
-  tinkoffAPIToken: 't.ggQBKkcHFZQNmMtdXB3mDkbbX_sTF7g_UBBrIPQz_E2RXOPllXDARh68HTxFcv5MkIsk2tWcoech07_3DbqGOg',
-  tickers: [
-  ],
-
   finam: {
     exportFolder: `dist`,
     data:{
@@ -24,6 +20,5 @@ module.exports = {
         tickers: []
       }
     },
-    intervals:['5000','3000']
   }
 }

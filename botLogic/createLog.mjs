@@ -28,7 +28,7 @@ async function createLog (timer) {
 
     let data = []
     data = JSON.stringify(data)
-    await fs.writeFileSync(path.join(__dirname, 'logs', `${date}.json`)
+    fs.writeFileSync(path.join(__dirname, 'logs', `${date}.json`)
         , data, 'utf8', function () {})
     return date
 }

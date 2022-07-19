@@ -1,5 +1,4 @@
 import fs from 'fs'
-import path from 'path'
 import {getDate} from "./botLogic/getDate.mjs";
 import {createLog} from "./botLogic/createLog.mjs";
 import * as algorithm from './botLogic/algorithm.mjs'
