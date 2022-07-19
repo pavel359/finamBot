@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "finamBot": "node bot.mjs",
+    "finamBotDEV": "node --inspect-brk bot.mjs",
     "profit": "node profitabilityIterator.mjs",
     "test": "node test.mjs",
     "exportFromFinam": "node finamExport/finamExporter.js",

@@ -10,6 +10,7 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
     let logFileDir = `botLogic/logs/${logFileName}`
     let share = {
         signal : false,
+        lastPrice: 0,
         currentAveragePrice : 0,
         pastAveragePrice : 0,
         currentPercent : 0,
@@ -23,6 +24,13 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
         position : undefined
     }
     for (let prop of data) {
+        share.lastPrice = Number(prop['<LAST>'])
+        if (share.signal == true) {
+            share.closePositionPrice = Number(prop['<LAST>'])
+            share.closePositionTime = `${prop['<DATE>']}' '${prop['<TIME>']}`
+            closePosition(ticker, share, logFileDir)
+            share.stopLoss = moveStopLoss(share, stopLossCoefficient)
+        }
         if (timeStamp(prop['<TIME>']) <= timer) {
             arrTrades.push(Number(prop['<LAST>']))
         } else {
@@ -32,15 +40,9 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
                 price += trade
                 i++
             }
+
             share.pastAveragePrice = share.currentAveragePrice
             share.currentAveragePrice = price/i
-
-            if (share.signal == true) {
-                share.stopLoss = moveStopLoss(share, stopLossCoefficient)
-                share.closePositionPrice = Number(prop['<LAST>'])
-                share.closePositionTime = `${prop['<DATE>']}' '${prop['<TIME>']}`
-                closePosition(ticker, share, logFileDir)
-            }
 
             share.pastPastPercent = share.pastPercent
             share.pastPercent = share.currentPercent
@@ -58,6 +60,13 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
                 timer += timing
             }
             arrTrades.push(Number(prop['<LAST>']))
+            if (share.signal == true) {
+                share.lastPrice = Number(prop['<LAST>'])
+                share.closePositionPrice = Number(prop['<LAST>'])
+                share.closePositionTime = `${prop['<DATE>']}' '${prop['<TIME>']}`
+                closePosition(ticker, share, logFileDir)
+                share.stopLoss = moveStopLoss(share, stopLossCoefficient)
+            }
         }
     }
     if (share.signal == true) {

@@ -6,7 +6,13 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-function createLog () {
+async function createLog (timer) {
+    const timeout = (ms) => new Promise(res=>{
+        setTimeout(res, ms)
+    })
+
+    await timeout(timer)
+
     let date = []
     date[0] = new Date().getDate()
     date[1] = new Date().getMonth() + 1
@@ -22,7 +28,7 @@ function createLog () {
 
     let data = []
     data = JSON.stringify(data)
-    fs.writeFileSync(path.join(__dirname, 'logs', `${date}.json`)
+    await fs.writeFileSync(path.join(__dirname, 'logs', `${date}.json`)
         , data, 'utf8', function () {})
     return date
 }

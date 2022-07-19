@@ -6,16 +6,16 @@ module.exports = {
   finam: {
     exportFolder: `dist`,
     data:{
-      from:"19.4.2022",
-      to:"20.4.2022",
-      end:"18.4.2022"
+      from:"24.6.2022",
+      to:"25.6.2022",
+      end:"22.6.2022"
     },
     markets:{
       spb: {
         id: 517,
         name: 'SPB_Exchange',
         prefix:'SPBEX.',
-        tickers: ["NFLX", "DOCU"
+        tickers: ['ZEN'
         ],
       },
       moex: {

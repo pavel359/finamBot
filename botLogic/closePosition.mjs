@@ -2,12 +2,12 @@ import fs from 'fs'
 function closePosition (ticker, share, logFIleDir, close = false) {
     let profitability
     if (share.position == 'long') {
-        if (share.currentAveragePrice <= share.stopLoss) {
+        if (share.lastPrice <= share.stopLoss) {
             close = true
         }
     }
     if (share.position == 'short') {
-        if (share.currentAveragePrice >= share.stopLoss) {
+        if (share.lastPrice >= share.stopLoss) {
             close = true
         }
     }
