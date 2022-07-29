@@ -33,6 +33,9 @@ function closePosition (ticker, share, logFIleDir, close = false) {
                 throw error
         })
         share.signal = false
+        share.currentPercent = 0
+        share.pastPercent = 0
+        share.pastPastPercent = 0
     }
 }
 
