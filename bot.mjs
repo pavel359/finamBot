@@ -4,15 +4,15 @@ import {createLog} from "./botLogic/createLog.mjs";
 import * as algorithm from './botLogic/algorithm.mjs'
 
 let tickers = [
-    "ZEN"
+    "NFLX"
 ]
-let startDate = "25.6.2022"
-let endDate = "22.6.2022"
+let startDate = "20.4.2022"
+const endDate = "18.4.2022"
 
-let logFileName1 = await createLog(5)
-let logFileName2 = await createLog(10)
-let logFileName3 = await createLog(15)
-let logFileName4 = await createLog(20)
+const logFileName1 = await createLog(5)
+const logFileName2 = await createLog(10)
+const logFileName3 = await createLog(15)
+const logFileName4 = await createLog(20)
 
 while (startDate != endDate) {
     for (let ticker of tickers) {

@@ -1,6 +1,5 @@
 import fs from 'fs'
 function closePosition (ticker, share, logFIleDir, close = false) {
-    let profitability
     if (share.position == 'long') {
         if (share.lastPrice <= share.stopLoss) {
             close = true
@@ -12,6 +11,7 @@ function closePosition (ticker, share, logFIleDir, close = false) {
         }
     }
     if (close == true) {
+        let profitability
         if (share.position == 'long') {
             profitability = (share.closePositionPrice - share.openPositionPrice) / share.openPositionPrice
         } else {

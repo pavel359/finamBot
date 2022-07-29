@@ -26,10 +26,10 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
     for (let prop of data) {
         share.lastPrice = Number(prop['<LAST>'])
         if (share.signal == true) {
-            share.closePositionPrice = Number(prop['<LAST>'])
+            share.stopLoss = moveStopLoss(share, stopLossCoefficient)
+            share.closePositionPrice = share.stopLoss
             share.closePositionTime = `${prop['<DATE>']}' '${prop['<TIME>']}`
             closePosition(ticker, share, logFileDir)
-            share.stopLoss = moveStopLoss(share, stopLossCoefficient)
         }
         if (timeStamp(prop['<TIME>']) <= timer) {
             arrTrades.push(Number(prop['<LAST>']))
@@ -60,9 +60,9 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
                 timer += timing
             }
             arrTrades.push(Number(prop['<LAST>']))
+
             if (share.signal == true) {
-                share.lastPrice = Number(prop['<LAST>'])
-                share.closePositionPrice = Number(prop['<LAST>'])
+                share.closePositionPrice = share.stopLoss
                 share.closePositionTime = `${prop['<DATE>']}' '${prop['<TIME>']}`
                 closePosition(ticker, share, logFileDir)
                 share.stopLoss = moveStopLoss(share, stopLossCoefficient)
