@@ -2,8 +2,8 @@ module.exports = {
   finam: {
     exportFolder: `dist`,
     data:{
-      from:"28.6.2022",
-      to:"29.6.2022",
+      from:"4.8.2022",
+      to:"5.8.2022",
       end:"1.1.2021"
     },
     markets:{
