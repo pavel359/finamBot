@@ -46,9 +46,9 @@ const finamExporter = async () => {
           }
         })
 
-        if (newData.length<=2) {
+        if (newData.length == 0) {
           console.log(`NOT FOUND ${ticker} ON FINAM ON MARKET: ${market.name} ON THIS DATE (${tradingSessionDate[0]})`);
-          break nextDay;
+          continue;
         }
 
         newData = JSON.stringify(newData)
