@@ -25,12 +25,12 @@ async function createLog (timer, version) {
     time[3] = new Date().getMilliseconds()
     time = time.join('.')
     date = date + ' ' + time
-
+    let name = version + ' ' + date
     let data = []
     data = JSON.stringify(data)
-    fs.writeFileSync(path.join(__dirname, 'logs', `${version}' '${date}.json`)
+    fs.writeFileSync(path.join(__dirname, 'logs', `${name}.json`)
         , data, 'utf8', function () {})
-    return date
+    return name
 }
 
 export {createLog}
