@@ -23,14 +23,17 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
         closePositionTime: 0,
         position : undefined
     }
+
     for (let prop of data) {
         share.lastPrice = Number(prop['<LAST>'])
+
         if (share.signal == true) {
             share.stopLoss = moveStopLoss(share, stopLossCoefficient)
             share.closePositionPrice = share.stopLoss
             share.closePositionTime = `${prop['<DATE>']}' '${prop['<TIME>']}`
             closePosition(ticker, share, logFileDir)
         }
+
         if (timeStamp(prop['<TIME>']) <= timer) {
             arrTrades.push(Number(prop['<LAST>']))
         } else {
@@ -42,7 +45,10 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
             }
 
             share.pastAveragePrice = share.currentAveragePrice
-            share.currentAveragePrice = price/i
+
+            if (price == 0) {
+                share.currentAveragePrice = 0
+            } else share.currentAveragePrice = price/i
 
             share.pastPastPercent = share.pastPercent
             share.pastPercent = share.currentPercent
@@ -56,19 +62,23 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
             }
 
             arrTrades = []
+            let j = 0
             while (timer < timeStamp(prop['<TIME>'])) {
                 timer += timing
+                j++
+                if (j>=2) {
+                    share.pastPastPercent = share.pastPercent
+                    share.pastPercent = share.currentPercent
+                    share.currentPercent = 0
+                    share.pastAveragePrice = share.currentAveragePrice
+                    share.currentAveragePrice = 0
+                }
             }
             arrTrades.push(Number(prop['<LAST>']))
-
-            if (share.signal == true) {
-                share.closePositionPrice = share.stopLoss
-                share.closePositionTime = `${prop['<DATE>']}' '${prop['<TIME>']}`
-                closePosition(ticker, share, logFileDir)
-                share.stopLoss = moveStopLoss(share, stopLossCoefficient)
-            }
         }
     }
+
+    arrTrades = []
     if (share.signal == true) {
         let end = true
         closePosition(ticker, share, logFileDir, end)
