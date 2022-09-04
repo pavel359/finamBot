@@ -176,3 +176,4 @@ Temporary Items
 # Files которым там не место
 /test.mjs
 /botLogic/logs/
+/config.js
