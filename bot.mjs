@@ -10,10 +10,10 @@ let tickers = [
 let startDate = "4.8.2022"
 const endDate = "1.3.2022"
 
-const logFileName1 = await createLog(5, 'v1')
-const logFileName2 = await createLog(10, 'v2')
-const logFileName3 = await createLog(15, 'v3')
-const logFileName4 = await createLog(20, 'v4')
+const logFileName1 = await createLog(5, 'v1', tickers)
+const logFileName2 = await createLog(10, 'v2', tickers)
+const logFileName3 = await createLog(15, 'v3', tickers)
+const logFileName4 = await createLog(20, 'v4', tickers)
 let logs = [logFileName1, logFileName2, logFileName3, logFileName4]
 
 async function main () {

@@ -3,9 +3,8 @@ import {moveStopLoss} from "./moveStopLoss.mjs";
 import {closePosition} from "./closePosition.mjs";
 import {getSignal} from "./getSignal.mjs";
 
-let arrTrades = []
-
 function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botVersion, logFileName) {
+    let arrTrades = []
     let ticker = data[0]['<TICKER>']
     let logFileDir = `botLogic/logs/${logFileName}`
     let share = {
@@ -77,8 +76,6 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
             arrTrades.push(Number(prop['<LAST>']))
         }
     }
-
-    arrTrades = []
     if (share.signal == true) {
         let end = true
         closePosition(ticker, share, logFileDir, end)
