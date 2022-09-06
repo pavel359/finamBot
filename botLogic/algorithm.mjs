@@ -28,7 +28,7 @@ function openPosition(data, timer, timing, stopLossCoefficient, keyPercent, botV
 
         if (share.signal == true) {
             share.stopLoss = moveStopLoss(share, stopLossCoefficient)
-            share.closePositionPrice = share.stopLoss
+            share.closePositionPrice = share.lastPrice
             share.closePositionTime = `${prop['<DATE>']}' '${prop['<TIME>']}`
             closePosition(ticker, share, logFileDir)
         }

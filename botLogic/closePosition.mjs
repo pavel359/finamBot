@@ -1,12 +1,12 @@
 import fs from 'fs'
 function closePosition (ticker, share, logFIleDir, close = false) {
     if (share.position == 'long') {
-        if (share.lastPrice <= share.stopLoss) {
+        if (share.currentAveragePrice <= share.stopLoss) {
             close = true
         }
     }
     if (share.position == 'short') {
-        if (share.lastPrice >= share.stopLoss) {
+        if (share.currentAveragePrice >= share.stopLoss) {
             close = true
         }
     }
@@ -20,6 +20,7 @@ function closePosition (ticker, share, logFIleDir, close = false) {
         let obj = {
             ticker: ticker,
             openPositionPrice: share.openPositionPrice,
+            direction: share.position,
             openPositionTime: share.openPositionTime,
             closePositionPrice: share.closePositionPrice,
             closePositionTime: share.closePositionTime,
